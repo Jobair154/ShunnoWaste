@@ -19,22 +19,23 @@ a {
 }
 
 .back_home {
+    cursor: pointer;
     width: fit-content;
     font-size: 20px;
     margin-bottom: 15px;
     margin-left: 12px;
-    cursor: pointer;
-    color: whitesmoke;
-    padding: 6px 16px;
     border-radius: 8px;
-    background-color: #87785F;
-    border: 2px solid #FFF4E4;
-    box-shadow: 4px 4px #00000090;
-    transition: 0.3s ease-in-out;
+    padding: 8px 18px;
+    color: #141619;
+    border: 1px solid #141619;
+    background-color: #90C67C;
+    box-shadow: 4px 4px 1px #141619ee;
+    transition: 0.2s ease;
+    margin-right: 50px;
 }
 
 .back_home:hover {
-    box-shadow: 2px 2px #00000090;
+    box-shadow: 2px 2px 1px #141619;
 }
 
 .loc_container {
@@ -77,16 +78,15 @@ a {
     border-radius: 5px;
     cursor: pointer;
     color: whitesmoke;
-    background: #8d99ae;
-    /* background: #93a8ac; */
-    border: 2px solid #FFF4E4;
-    box-shadow: 5px 5px #00000090;
-    transition: 0.3s ease-in-out;
+    background: #67AE6E;
+    border: 1px solid #141619;
+    box-shadow: 5px 5px #141619ee;
+    transition: 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .location-btn:hover {
-    scale: 1.02;
-    box-shadow: 4px 4px #000000aa;
+    scale: 1.04;
+    box-shadow: 3px 3px #141619;
 }
 
 .details {
@@ -99,7 +99,7 @@ a {
     backdrop-filter: blur(2px);
     color: whitesmoke;
     transition: 0.4s ease-in-out;
-    background-color: #7D6D61;
+    background-color: #50C878;
     box-shadow: 5px 5px 5px 1px #000000bb;
 }
 
@@ -125,4 +125,19 @@ a {
 
 #google-maps-link:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .locations {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+    .details {
+        flex-direction: column;
+        text-align: center;
+    }
+    .details_img {
+        width: 100%;
+        height: 200px;
+    }
 }
