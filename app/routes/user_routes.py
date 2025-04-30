@@ -158,3 +158,40 @@ def user_dashboard():
         total_cardboards=total_cardboards,
         total_glasses=total_glasses,
     )
+
+
+@user_bp.route("/withdraw", methods=["POST"])
+@login_required("user")
+def withdraw():
+    data = request.get_json()
+    withdrawal_amount = data.get("amount", 0)
+    user_id = session.get("id")
+    points = session.get("points", 0)
+
+    if withdrawal_amount <= 0:
+        return jsonify({"success": False, "message": "Invalid withdrawal amount."})
+
+    if withdrawal_amount > points:
+        return jsonify({"success": False, "message": "Insufficient points available."})
+
+    points -= withdrawal_amount
+    session["points"] = points
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            "UPDATE user SET user_points = %s WHERE user_id = %s",
+            (points, user_id),
+        )
+        conn.commit()
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify(
+            {"success": False, "message": "An error occurred during withdrawal."}
+        )
+    finally:
+        conn.close()
+
+    return jsonify({"success": True, "new_balance": points})
