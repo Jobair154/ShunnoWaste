@@ -15,6 +15,30 @@
         <div class="back_home_div">
             <div><a href="/" class="nav-link" id="home">Home</a></div>
         </div>
+        <div id="edit-profile-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit Profile</h2>
+                <form id="edit-profile-form">
+                    <div class="edit-input-box">
+                        <label for="edit-name">Name</label>
+                        <input type="text" id="edit-name" name="name" value="{{ username }}" required>
+                    </div>
+                    <div class="edit-input-box">
+                        <label for="edit-location">Location</label>
+                        <input type="text" id="edit-location" name="location" value="{{ location }}" required>
+                    </div>                  
+                    
+                    <!-- ---Password field--- -->
+                    <div class="edit-input-box">
+                        <label for="edit-password">Password</label>
+                        <input type="text" id="edit-password" name="password" value="{{ password }}" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Save Changes</button>
+                </form>
+            </div>
+</div>
 
         <div class="wrapper">
             <div class="profile_card">
