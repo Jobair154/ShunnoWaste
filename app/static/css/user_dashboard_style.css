@@ -436,3 +436,152 @@ h2 {
     color: #141619;
     font-size: 16px;
 }
+
+#edit-profile-btn {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .profile_card {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+        gap: 30px; 
+    }
+
+    .user-summary {
+        width: 90%; 
+        padding: 5%;
+        font-size: 14px;
+    }
+
+    .user-summary table {
+        font-size: 14px;
+        width: 100%;
+        border-spacing: 8px; 
+    }
+
+    .user-summary th, 
+    .user-summary td {
+        font-size: 1rem;
+        text-align: center; 
+        padding: 10px; 
+    }
+
+    .user-summary th {
+        font-weight: bold;
+        background: #A8C8A8; 
+        padding: 12px; 
+    }
+
+    .transactions-container {
+        max-height: 250px; 
+        overflow-x: auto; 
+    }
+
+    .transactions-container table {
+        min-width: 600px; 
+        font-size: 14px;
+    }
+    .transactions-container th {
+        font-size: 1rem;
+    }
+    .wrapper {
+        width: 95%;
+        margin: 20px 0;
+        padding: 10px;
+    }
+
+    .bottom_section {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+    }
+    .new-order {
+        width: fit-content; 
+        padding: 15px;
+        text-align: center;
+        overflow: auto;
+        margin-bottom: 20px;
+    }
+
+    .items-section {
+        width: 100%;
+        min-width: 200px;
+    }
+    .item-group {
+        display: flex;
+        padding: 15px;
+        text-align: left;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 10px 0 20px 0;
+    }
+    .input-box {
+        padding: 20px;;
+        text-align: left;   
+    }
+    .item-group label {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px; 
+    }
+    .input-box select,
+    .item-group input[type="number"] {
+        width: 100%; 
+        max-width: none;
+    }
+
+    .submit-btn {
+            float:none;
+            margin: 15px 0;
+            padding: 8px 10px;
+            font-size: 12px;
+        }
+
+        .extra_board {
+            width: 100%;
+            margin-left: 0;
+            padding: 0px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .withdraw {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .withdraw form {
+            font-size: 18px; 
+            margin-top: 15px;
+        }
+    
+        .withdraw input[type="number"] {
+            width: 100%; 
+            max-width: none;
+            margin-top: 10px;
+    
+       }
+       #reward {
+        float:center;
+        margin: 15px 0;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+    .profile_card {
+        flex-direction: column;
+        height: auto;
+    }
+    .user-summary, .user-info {
+        width: 100%;
+        text-align: center;
+    }
+    .transactions-container {
+        overflow-x: auto;
+    }  
+}
