@@ -88,6 +88,7 @@ def user_login():
 
     return render_template("user_login.html")
 
+
 @user_bp.route("/user_dashboard")
 @login_required("user")
 def user_dashboard():
@@ -158,6 +159,7 @@ def user_dashboard():
         total_glasses=total_glasses,
     )
 
+
 @user_bp.route("/user_submit", methods=["POST", "GET"])
 @login_required("user")
 def user_submit():
@@ -222,6 +224,7 @@ def user_submit():
 
     return render_template("user_dashboard.html")
 
+
 @user_bp.route("/update_profile", methods=["POST"])
 @login_required("user")
 def update_profile():
@@ -253,6 +256,7 @@ def update_profile():
         return jsonify({"success": False, "message": "Database error occurred"})
     finally:
         conn.close()
+
 
 @user_bp.route("/withdraw", methods=["POST"])
 @login_required("user")
