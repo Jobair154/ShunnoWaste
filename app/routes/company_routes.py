@@ -148,3 +148,85 @@ def company_dashboard():
         total_cardboards=total_cardboards,
         total_glasses=total_glasses,
     )
+
+
+@company_bp.route("/company_submit", methods=["POST"])
+@login_required("company")
+def company_submit():
+    if request.method == "POST":
+        plastic_quantity = request.form.get("plasticBottles", 0, type=int)
+        cardboard_quantity = request.form.get("cardboard", 0, type=int)
+        glass_quantity = request.form.get("glass", 0, type=int)
+        company_id = session.get("company_id")
+
+        if not company_id:
+            return redirect(url_for("company.company_login"))
+
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute(
+                """
+                INSERT INTO company_history 
+                (company_id, plastic_bottles, cardboards, glasses) 
+                VALUES (%s, %s, %s, %s)
+                """,
+                (company_id, plastic_quantity, cardboard_quantity, glass_quantity),
+            )
+
+            cursor.execute(
+                """
+                UPDATE storage
+                SET
+                    plastic = plastic - %s,
+                    cardboard = cardboard - %s,
+                    glass = glass - %s
+                """,
+                (plastic_quantity, cardboard_quantity, glass_quantity),
+            )
+            conn.commit()
+
+        except Exception as e:
+            print(f"Error: {e}")
+
+        finally:
+            conn.close()
+
+        return redirect(url_for("company.company_dashboard"))
+
+    return render_template("company_dashboard.html")
+
+
+@company_bp.route("/cupdate_profile", methods=["POST"])
+@login_required("company")
+def update_profile():
+
+    data = request.get_json()
+    name = data.get("name")
+    location = data.get("location")
+    company_id = session.get("company_id")
+
+    if not name or not location:
+        return jsonify({"success": False, "message": "Name and location are required"})
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "UPDATE company SET company_name = %s, company_location = %s WHERE company_id = %s",
+            (name, location, company_id),
+        )
+        conn.commit()
+
+        # Update session data
+        session["company_name"] = name
+        session["company_location"] = location
+
+        return jsonify({"success": True})
+
+    except Exception as e:
+        print(f"Error updating profile: {e}")
+        return jsonify({"success": False, "message": "Database error occurred"})
+    finally:
+        conn.close()
