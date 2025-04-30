@@ -1,4 +1,3 @@
-/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +7,7 @@
 
 body {
     background-color: #F2ECE4;
-    background-image: radial-gradient(#14161940 0.9px, #F8F0FB 0.7px);
+    background-image: radial-gradient(#14161940 0.9px, #9EDF91 0.7px);
     background-size: 20px 20px;
     color: #141619;
 }
@@ -18,7 +17,6 @@ a {
     color: whitesmoke;
 }
 
-/* Layout Components */
 .container {
     display: flex;
     flex-direction: column;
@@ -26,31 +24,6 @@ a {
     align-items: center;
 }
 
-.wrapper {
-    width: 90%;
-    margin: 20px 0;
-    height: fit-content;
-    background-color: #36454F;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    color: #fff;
-    border-radius: 10px;
-    padding: 40px;
-    animation: pop 0.5s cubic-bezier(0, 0, 0.21, 1);
-}
-
-@keyframes pop {
-    0% {
-        transform: scale(0.3);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Navigation */
 .back_home_div {
     width: 90%;
     display: flex;
@@ -69,9 +42,9 @@ a {
     cursor: pointer;
     padding: 6px 16px;
     border-radius: 7px;
-    background-color: #87785F;
-    border: 2px solid #C5D6BC;
-    box-shadow: 3px 3px #00000090;
+    background-color: #254336BB;
+    border: 2px solid #E0FBE2DD;
+    box-shadow: 3px 4px #00000090;
     transition: 0.3s ease-in-out;
 }
 
@@ -80,57 +53,64 @@ a {
 }
 
 #home {
-    border-color: #F2ECE4;
+    border-color: transparent;
 }
 
-/* Profile Card */
+.wrapper {
+    width: 90%;
+    margin: 20px 0;
+    height: fit-content;
+    background-color: #43685090;
+    backdrop-filter: blur(20px);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .9);
+    color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    animation: pop 0.5s cubic-bezier(0, 0, 0.21, 1);
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 .profile_card {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: transparent;
     margin-bottom: 20px;
     height: 18vw;
-}
-
-.user-summary,
-.user-info {
-    background: #C5D6BC;
-    border-radius: 8px;
-    color: #141619;
 }
 
 .user-summary {
     width: 40%;
     height: 100%;
+    border-radius: 8px;
+    background: #E0FBE2DD;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 3%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .9);
 }
 
-.user-info {
-    height: 100%;
-    border-radius: 5px;
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2%;
-}
-
-/* Table Styles */
 .user-summary table {
     width: 100%;
     height: 100%;
     border-collapse: collapse;
+    color: #141619;
     align-items: center;
 }
 
 .user-summary th,
-.user-summary td {
+td {
     border-bottom: 1px solid black;
     text-align: left;
 }
@@ -139,10 +119,25 @@ a {
     font-size: 1.2rem;
 }
 
-/* User Info Styles */
+.user-info {
+    /* background: #E0FBE2;     */
+    background: #E0FBE2DD;
+    display: flex;
+    height: 100%;
+    border-radius: 5px;
+    width: 55%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #141619;
+    padding: 2%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+}
+
 .info {
     font-size: 1.05rem;
     line-height: 170%;
+    color: #141619;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -156,20 +151,19 @@ a {
 
 .profile_buttons {
     display: flex;
-    width: 100%;
-    height: 35px;
     justify-content: space-between;
+    align-items: start;
+    width: 100%;
 }
 
-/* Transactions Section */
 .transactions {
     padding: 30px;
+    background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     margin: 40px auto;
     width: 100%;
-    color: white;
-    backdrop-filter: blur(10px);
+    color: #BFF6C3;
 }
 
 h2 {
@@ -180,11 +174,12 @@ h2 {
 }
 
 .transactions-container {
-    background-color: #C5D6BC;
+    background-color: #BFF6C3;
     overflow: auto;
     max-height: 350px;
     scrollbar-width: thin;
     scrollbar-color: #585858 transparent;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
 }
 
 .transactions-container table {
@@ -213,20 +208,12 @@ h2 {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Bottom Section Styles */
 .bottom_section {
     display: flex;
     height: fit-content;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-}
-
-.new-order,
-.withdraw {
-    background: #E6E6FA;
-    color: #141619;
-    border-radius: 10px;
 }
 
 .new-order {
@@ -236,24 +223,29 @@ h2 {
     align-items: center;
     width: 50%;
     padding: 10px 40px;
+    background: #E0FBE2DD;
     border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    color: #141619;
 }
 
 .new-order h2 {
+    text-align: center;
     margin-bottom: 10px;
     font-size: 22px;
 }
 
-/* Form Styles */
 .items-section {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 80%;
     min-width: 500px;
+    background: transparent;
 }
 
 #branch {
+    background: transparent;
     color: #141619ee;
     padding: 5px 15px;
     width: 35%;
@@ -266,6 +258,7 @@ h2 {
 
 .input-box {
     margin-bottom: 20px;
+    background: transparent;
     padding-left: 20px;
 }
 
@@ -297,14 +290,19 @@ h2 {
     width: 20%;
     max-width: 400px;
     min-width: 120px;
+    background: transparent;
     color: #141619;
 }
 
 .item-group input[type="number"] {
     width: 100px;
+    color: #141619;
 }
 
-/* Button Styles */
+.cardboard {
+    height: 10px;
+}
+
 .submit-btn {
     float: right;
     margin: 15px 0;
@@ -315,9 +313,9 @@ h2 {
     cursor: pointer;
     transition: 0.3s ease;
     border-radius: 8px;
-    background-color: #87785F;
+    background-color: #254336BB;
     border: 2px solid #E6E6FA;
-    box-shadow: 4px 4px #00000090;
+    box-shadow: 3px 4px #00000090;
     transition: 0.4s ease-in-out;
 }
 
@@ -325,7 +323,6 @@ h2 {
     box-shadow: 2px 2px #000000bb;
 }
 
-/* Extra Section Styles */
 .extra_board {
     display: flex;
     flex-direction: column;
@@ -341,6 +338,8 @@ h2 {
 
 .withdraw {
     width: 100%;
+    background: #E0FBE2DD;
+    color: #141619;
     border-radius: 3px;
     padding: 2% 5%;
     text-align: center;
@@ -352,11 +351,11 @@ h2 {
 }
 
 #reward {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #90C67C;
     border-color: #36454F;
 }
 
-/* Modal Styles */
+
 .modal {
     display: none;
     position: fixed;
@@ -433,6 +432,7 @@ h2 {
     padding: 10px;
     border: 1px solid #14161990;
     border-radius: 5px;
+    background: transparent;
     color: #141619;
     font-size: 16px;
 }
@@ -443,14 +443,14 @@ h2 {
 
 @media screen and (max-width: 768px) {
     .profile_card {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 30px; 
+        gap: 30px;
     }
 
     .user-summary {
-        width: 90%; 
+        width: 90%;
         padding: 5%;
         font-size: 14px;
     }
@@ -458,34 +458,36 @@ h2 {
     .user-summary table {
         font-size: 14px;
         width: 100%;
-        border-spacing: 8px; 
+        border-spacing: 8px;
     }
 
-    .user-summary th, 
+    .user-summary th,
     .user-summary td {
         font-size: 1rem;
-        text-align: center; 
-        padding: 10px; 
+        text-align: center;
+        padding: 10px;
     }
 
     .user-summary th {
         font-weight: bold;
-        background: #A8C8A8; 
-        padding: 12px; 
+        background: #A8C8A8;
+        padding: 12px;
     }
 
     .transactions-container {
-        max-height: 250px; 
-        overflow-x: auto; 
+        max-height: 250px;
+        overflow-x: auto;
     }
 
     .transactions-container table {
-        min-width: 600px; 
+        min-width: 600px;
         font-size: 14px;
     }
+
     .transactions-container th {
         font-size: 1rem;
     }
+
     .wrapper {
         width: 95%;
         margin: 20px 0;
@@ -494,13 +496,14 @@ h2 {
 
     .bottom_section {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         width: 100%;
         gap: 20px;
     }
+
     .new-order {
-        width: fit-content; 
+        width: fit-content;
         padding: 15px;
         text-align: center;
         overflow: auto;
@@ -511,6 +514,7 @@ h2 {
         width: 100%;
         min-width: 200px;
     }
+
     .item-group {
         display: flex;
         padding: 15px;
@@ -519,69 +523,78 @@ h2 {
         gap: 10px;
         margin: 10px 0 20px 0;
     }
+
     .input-box {
-        padding: 20px;;
-        text-align: left;   
+        padding: 20px;
+        ;
+        text-align: left;
     }
+
     .item-group label {
         width: 100%;
         text-align: center;
-        margin-bottom: 5px; 
+        margin-bottom: 5px;
     }
+
     .input-box select,
     .item-group input[type="number"] {
-        width: 100%; 
+        width: 100%;
         max-width: none;
     }
 
     .submit-btn {
-            float:none;
-            margin: 15px 0;
-            padding: 8px 10px;
-            font-size: 12px;
-        }
-
-        .extra_board {
-            width: 100%;
-            margin-left: 0;
-            padding: 0px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .withdraw {
-            width: 100%;
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    
-        .withdraw form {
-            font-size: 18px; 
-            margin-top: 15px;
-        }
-    
-        .withdraw input[type="number"] {
-            width: 100%; 
-            max-width: none;
-            margin-top: 10px;
-    
-       }
-       #reward {
-        float:center;
+        float: none;
         margin: 15px 0;
         padding: 8px 10px;
         font-size: 12px;
     }
+
+    .extra_board {
+        width: 100%;
+        margin-left: 0;
+        padding: 0px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .withdraw {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .withdraw form {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+
+    .withdraw input[type="number"] {
+        width: 100%;
+        max-width: none;
+        margin-top: 10px;
+
+    }
+
+    #reward {
+        float: center;
+        margin: 15px 0;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
     .profile_card {
         flex-direction: column;
         height: auto;
     }
-    .user-summary, .user-info {
+
+    .user-summary,
+    .user-info {
         width: 100%;
         text-align: center;
     }
+
     .transactions-container {
         overflow-x: auto;
-    }  
+    }
 }
