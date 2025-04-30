@@ -18,17 +18,17 @@
       <div><a href="/logout" class="logout-link">Logout</a></div>
     </div>
 
-    <div class="wrapper">
 
+    <div class="wrapper">
       <!-- Company Profile Section -->
       <section class="company-profile">
         <div class="profile-picture">
-          <img src="static/assets/company.png" alt="Profile Picture">
+          <img src="../static/assets/company.png" alt="Company Logo">
           <div class="profile-details">
-            <h2>{{ session['company_name'] }}</h2> <!-- Company Name -->
-            <p>{{ session['company_address'] }}</p> <!-- Company Address from the user -->
+            <h2 id="company_name">{{ company_name }}</h2>
+            <h4 id="company_location">{{ company_location }}</h4>
             <p>Eco Solutions is dedicated to sustainable waste management and recycling solutions.</p>
-            <button class="edit-button">Edit Profile</button>
+            <button id="edit-profile-btn">Edit Profile</button>
           </div>
         </div>
       </section>
@@ -90,7 +90,7 @@
           </table>
         </div>
       </section>
-     
+
 
       <section class="stock">
         <h2>Available Stock</h2>
@@ -122,22 +122,42 @@
       </section>
 
     </div>
-    
-       <!-- Pop-Up Modal for Order Form -->
+
+    <!-- Modal Components -->
+    <div id="edit-profile-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="edit-profile-form">
+          <div class="edit-input-box">
+            <label for="edit-name">Name</label>
+            <input type="text" id="edit-name" name="name" value="{{ company_name }}" required>
+          </div>
+          <div class="edit-input-box">
+            <label for="edit-location">Location</label>
+            <input type="text" id="edit-location" name="location" value="{{ company_location }}" required>
+          </div>
+          <button type="submit" class="submit-btn">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Pop-Up Modal for Order Form -->
     <div id="orderFormModal" class="order-form-modal">
       <div class="order-form-content">
         <span class="close-btn" onclick="closeOrderForm()">&times;</span>
         <h3>Order Materials</h3>
         <form id="orderForm" method="POST" action="/company_submit">
-         
+
           <label for="plasticBottles">Plastic Bottles:</label>
-          <input type="number" id="plasticBottles" name="plasticBottles" placeholder="Enter quantity in kg">
+          <input type="number" id="plasticBottles" name="plasticBottles" placeholder="Enter quantity in kg" min="0"
+            required>
 
           <label for="cardboard">Cardboard:</label>
-          <input type="number" id="cardboard" name="cardboard" placeholder="Enter quantity in kg">
+          <input type="number" id="cardboard" name="cardboard" placeholder="Enter quantity in kg" min="0" required>
 
           <label for="glass">Glass:</label>
-          <input type="number" id="glass" name="glass" placeholder="Enter quantity in kg">
+          <input type="number" id="glass" name="glass" placeholder="Enter quantity in kg" min="0" required>
 
           <button type="submit">Submit Order</button>
         </form>
@@ -148,7 +168,7 @@
       <p>Order submitted successfully!</p>
       <button onclick="closeSuccessMessage()">Close</button>
     </div>
-   
+
 
   </div>
 
