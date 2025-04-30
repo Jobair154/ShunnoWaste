@@ -158,3 +158,100 @@ def user_dashboard():
         total_cardboards=total_cardboards,
         total_glasses=total_glasses,
     )
+
+    @user_bp.route("/user_submit", methods=["POST", "GET"])
+@login_required("user")
+def user_submit():
+    if request.method == "POST":
+        branch = request.form["branch"]
+        plastic_quantity = request.form.get("plastic-quantity", 0, type=int)
+        cardboard_quantity = request.form.get("cardboard-quantity", 0, type=int)
+        glass_quantity = request.form.get("glass-quantity", 0, type=int)
+
+        user_id = session.get("id")
+        if not user_id:
+            print("Please log in to submit an order.")
+            return redirect(url_for("user_login"))
+
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(
+                """
+                INSERT INTO user_history (user_id, plastic_bottles, cardboards, glasses, user_history_date, user_history_branch) 
+                VALUES (%s, %s, %s, %s, NOW(), %s)
+                """,
+                (user_id, plastic_quantity, cardboard_quantity, glass_quantity, branch),
+            )
+
+            cursor.execute(
+                """
+                UPDATE storage
+                SET
+                    plastic = plastic + %s,
+                    cardboard = cardboard + %s,
+                    glass = glass + %s
+                """,
+                (plastic_quantity, cardboard_quantity, glass_quantity),
+            )
+
+            plastic_points = plastic_quantity * 2  # 2 points per bottle
+            cardboard_points = cardboard_quantity * 1  # 1 point per cardboard
+            glass_points = glass_quantity * 3  # 3 points per glass
+            total_points = plastic_points + cardboard_points + glass_points
+
+            # Update user points in the database
+            cursor.execute(
+                "UPDATE user SET user_points = user_points + %s WHERE user_id = %s",
+                (total_points, user_id),
+            )
+
+            session["points"] = session.get("points", 0) + total_points
+
+            conn.commit()
+            print("Submission successful!")
+
+        except Exception as e:
+            print(f"Error: {e}")
+            print("An error occurred during submission.")
+
+        finally:
+            conn.close()
+
+        return redirect(url_for("user.user_dashboard"))
+
+    return render_template("user_dashboard.html")
+    
+@user_bp.route("/update_profile", methods=["POST"])
+@login_required("user")
+def update_profile():
+    data = request.get_json()
+    name = data.get("name")
+    password = data.get("password")
+    location = data.get("location")
+    user_id = session.get("id")
+
+    if not name or not location:
+        return jsonify({"success": False, "message": "Name and location are required"})
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            "UPDATE user SET user_name = %s, user_password = %s, user_location = %s WHERE user_id = %s",
+            (name, password, location, user_id),
+        )
+        conn.commit()
+
+        # Update session data
+        session["username"] = name
+
+        return jsonify({"success": True})
+
+    except Exception as e:
+        print(f"Error updating profile: {e}")
+        return jsonify({"success": False, "message": "Database error occurred"})
+    finally:
+        conn.close()
+
