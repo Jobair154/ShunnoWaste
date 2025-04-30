@@ -5,38 +5,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShunnoWaste</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_styles.css' ) }}">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rampart+One&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <section class="main-section">
-        <nav class="navbar">
-            <a href="/" class="logo">ShunnoWaste</a>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="/find_bins">Find Bin</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="/login" class="login"><i class='bx bxs-user'></i> Login</a>
-        </nav>
+    <nav class="navbar">
+        <a href="/" class="logo">ShunnoWaste</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/find_bins">Find Bin</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="/login" class="login"><i class='bx bxs-user'></i> Login</a>
+    </nav>
 
-        <section class="body-section">
-            <h1>ShunnoWaste</h1>
-            <p>ShunnoWaste is designed as a smart recycling management system that integrates
-                digital tracking, automated inventory management, and a structured rewards mechanism
-                to encourage recycling. By leveraging software-driven automation, this system ensures
-                efficient material flow between users and businesses while promoting sustainable
-                practices.</p>
+    <div class="wrapper" id="top">
+        <div class="cover">
+            <div class="cover-content">
+                <h1>Recycle. Reward. Reimagine.</h1>
+                <p>Transform your waste into a sustainable future</p>
+                <a href="/find_bins" class="cta-button">Find Nearest Bin</a>
+            </div>
+        </div>
+
+        <section id="about" class="about-section">
+            <div class="about-img"> </div>
+            <div class="about-text">
+                <h2>About ShunnoWaste</h2>
+                <p>This recycling system will be a web-based application designed to encourage individuals and
+                    communities to participate in recycling efforts. The system will provide a platform where users
+                    can report their collections of recyclable items, such as plastic bottles, aluminum cans, and
+                    glass bottles/jars, locate nearby recycling bins, track their recycling history, and earn
+                    rewards based on their contributions.</br>The platform will also provide data insights for recycling
+                    companies to optimize recycling operations, manage recycling bins, and review recycling
+                    statistics. This project will align with Sustainable Development Goal (SDG) 12: Responsible
+                    Consumption and Production. This goal seeks to ensure sustainable management of resources and
+                    reduce waste through prevention, reduction, recycling, and reuse.
+                </p>
+            </div>
         </section>
-    </section>
+
+        <section id="faq" class="faq-section">
+            <div class="section-content">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3>How do I start recycling? <i class='bx bx-chevron-down faq-icon'></i></h3>
+                        <div class="faq-answer" style="display:none;">
+                            <p>Simply create an account, locate a bin near you, and start collecting recyclables!</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3>What materials can I recycle? <i class='bx bx-chevron-down faq-icon'></i></h3>
+                        <div class="faq-answer" style="display:none;">
+                            <p>We accept plastic bottles, glass, aluminum cans, e-waste, cardboard, and paper.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3>How do rewards work? <i class='bx bx-chevron-down faq-icon'></i></h3>
+                        <div class="faq-answer" style="display:none;">
+                            <p>Earn points for each recyclable item you dispose of and redeem them for rewards.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3>Is there a mobile app available? <i class='bx bx-chevron-down faq-icon'></i></h3>
+                        <div class="faq-answer" style="display:none;">
+                            <p>NO! Our service in currenlty accessible via this website only.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3>How do I find recycling bins near me? <i class='bx bx-chevron-down faq-icon'></i></h3>
+                        <div class="faq-answer" style="display:none;">
+                            <p>Use our "Find Bin" section to locate the nearest recycling bins. You can filter by the
+                                types of materials accepted and view real-time bin capacity.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3>Can businesses participate in the program? <i class='bx bx-chevron-down faq-icon'></i></h3>
+                        <div class="faq-answer" style="display:none;">
+                            <p>Absolutely! We have special business accounts for companies looking to improve their
+                                sustainability efforts. Businesses can track employee recycling activities, host
+                                recycling drives, and earn corporate rewards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="blog" class="blog-section">
+            <div class="section-content">
+                <h2>Latest Insights</h2>
+                <div class="blog-grid">
+                    <div class="blog-card" onclick="toggleBlog(this)">
+                        <h3>Recycling 101: What Can Be Recycled?</h3>
+                        <p>Discover the most common recyclable materials and how to sort them correctly.</p>
+                        <div class="blog-details" style="display:none;">
+                            <p><strong>Details:</strong> Plastics (types 1-7), aluminum, glass, cardboard, and paper can
+                                be recycled in most areas.</p>
+                        </div>
+                    </div>
+                    <div class="blog-card" onclick="toggleBlog(this)">
+                        <h3>Community Impact Report</h3>
+                        <p>See how our users are making a difference in sustainable waste management.</p>
+                        <div class="blog-details" style="display:none;">
+                            <p><strong>Details:</strong> Users collectively recycled over 10 tons of material last
+                                quarter, reducing landfill waste by 18%.</p>
+                        </div>
+                    </div>
+                    <div class="blog-card" onclick="toggleBlog(this)">
+                        <h3>Rewards Program Update</h3>
+                        <p>Learn about our new exciting rewards for eco-conscious recyclers!</p>
+                        <div class="blog-details" style="display:none;">
+                            <p><strong>Details:</strong> New reward tiers include gift vouchers, eco-products, and
+                                donation options for NGOs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content" id="contact">
+            <div class="footer-logo">
+                <a href="/" class="logo-f">ShunnoWaste</a>
+                <p>Sustainable Recycling, Rewarding Change</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/find_bins">Find Bin</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: support@shunnowaste.com</p>
+                <p>Phone: +880 123 456 7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ShunnoWaste. All Rights Reserved.</p>
+        </div>
+    </footer>
+
 </body>
+
+<script>
+    window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+
+        if (window.scrollY > 50) {
+            navbar.classList.add("solid");
+            navbar.classList.remove("transparent");
+        } else {
+            navbar.classList.add("transparent");
+            navbar.classList.remove("solid");
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.add("transparent");
+    });
+
+    function toggleBlog(card) {
+        // Toggle the clicked card
+        const detail = card.querySelector('.blog-details');
+        if (detail.style.display === 'none') {
+            detail.style.display = 'block';
+            card.classList.add('active');
+        } else {
+            detail.style.display = 'none';
+            card.classList.remove('active');
+        }
+    }
+
+    function toggleFAQ(item) {
+        // Toggle the clicked FAQ's answer without changing other FAQ elements' shape
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+
+        if (answer.style.display === 'none') {
+            answer.style.display = 'block';
+            item.classList.add('active');
+            icon.classList.add('rotate');
+        } else {
+            answer.style.display = 'none';
+            item.classList.remove('active');
+            icon.classList.remove('rotate');
+        }
+    }
+</script>
 
 </html>
