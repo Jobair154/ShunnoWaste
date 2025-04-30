@@ -1,0 +1,566 @@
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #67AE6E;
+    background-image: radial-gradient(#4a4a4a 0.8px, #E1EEBC 0.8px);
+    background-size: 20px 20px;
+    color: #141619;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.logo {
+    font-family: "Rampart One", sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #141619bb;
+    margin-left: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+}
+
+nav ul li {
+    font-weight: 300;
+    padding: 0 10px;
+}
+
+nav ul li a {
+    font-weight: 600;
+    color: #141619;
+    margin: 10px;
+    padding: 2px;
+    border-radius: 2px;
+    border-bottom: 3px solid transparent;
+    transition: 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #dd1c1a;
+    border-bottom: 3px solid #dd1c1a;
+}
+
+.login {
+    border: 1px solid #141619;
+    border-radius: 8px;
+    background-color: #90C67C;
+    color: #141619;
+    padding: 8px 18px;
+    box-shadow: 4px 4px 1px #141619ee;
+    transition: 0.2s ease;
+    margin-right: 50px;
+}
+
+.login:hover {
+    box-shadow: 2px 2px 1px #141619;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.navbar.solid {
+    background-color: #67AE6E;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 30px;
+    margin-top: 60px;
+}
+
+.cover {
+    height: 80vh;
+    width: 100%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #50C878;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    box-shadow: 3px 3px 1px #141619bb;
+    animation: pop 0.4s cubic-bezier(0, 0, 0.21, 1);
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+    }
+
+    70% {
+        transform: scale(1.01);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cover-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.cover-content h1 {
+    color: #141619dd;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    font-family: "Rampart One", sans-serif;
+}
+
+.cover-content p {
+    color: aliceblue;
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #3b4041;
+    box-shadow: 4px 4px 2px #141619;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: #141619aa;
+    box-shadow: 0px 0px #4a5759;
+}
+
+.about-section {
+    display: flex;
+    border-radius: 30px;
+    margin: 30px 0;
+    justify-content: space-between;
+    align-items: center;
+    animation: pop 0.4s cubic-bezier(0, 0, 0.21, 1);
+}
+
+.about-img {
+    height: 400px;
+    width: 450px;
+    background: url('../assets/ShunnoWaste.png');
+    background-repeat: no-repeat;
+    border: 3px solid #14161990;
+    box-shadow: 3px 3px 1px #141619bb;
+    background-color: #90C67C99;
+    background-position: center;
+    background-size: contain; /* Changed from 'cover' to 'contain' to fit the entire image */
+    border-radius: 20px;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.1rem;
+    width: 70%;
+    height: 410px;
+    /* background-color: #00A86B; */
+    background-color: #90C67C;
+    margin-left: 40px;
+    padding: 0 40px;
+    border-radius: 20px;
+    text-align: justify;
+    box-shadow: 3px 3px 1px #141619bb;
+}
+
+.about-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #FFFADA;
+}
+
+.about-text p{
+    color: black
+}
+
+/* Blog Section */
+
+.section-content {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #141619;
+}
+
+.blog-section {
+    border-radius: 30px;
+    color: white;
+    margin-top: 20px;
+    padding: 0 30px 30px 30px;
+    background-color: #328E6E;
+    box-shadow: 3px 3px 1px #141619bb;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.blog-card {
+    background-color: #67AE6E;
+    padding: 25px;
+    border-radius: 20px;
+    border-bottom: 4px solid #141619cc;
+    border-right: 3px solid #141619cc;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    transform: scale(1.02);
+}
+
+.blog-card.active {
+    background-color: #55945B;
+    transform: scale(1.02);
+}
+
+.blog-card h3 {
+    margin-bottom: 15px;
+    color: #141619;
+}
+
+.blog-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #141619bb;
+    font-weight: bold;
+    border-bottom: 2px solid;
+}
+
+.blog-details {
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    margin-top: 10px;
+}
+
+/* FAQ Section */
+.faq-section {
+    display: flex;
+    width: 100%;
+    border-radius: 30px;
+    align-items: center;
+    color: white;
+    margin: 30px 0;
+}
+
+.faq-grid {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    gap: 50px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: #3F7D58;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 1px #141619;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: ease-in-out 0.3s;
+}
+
+.faq-item:hover {
+    transform: scale(1.05);
+    background-color: #69a380;
+}
+
+.faq-item.active {
+    background-color: #346847;
+}
+
+.faq-item.active:hover {
+    transform: scale(1.05);
+    background-color: #69a380;
+}
+
+.faq-item h3 {
+    color: #141619;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-icon.rotate {
+    transform: rotate(-180deg);
+}
+
+.faq-item p {
+    font-size: 1.1rem;
+}
+
+.faq-answer {
+    overflow: auto;
+    transition: ease-in-out 1s;
+}
+
+/* Footer */
+footer {
+    background-color: #282828;
+    color: whitesmoke;
+    padding: 50px 0 20px;
+    text-align: center;
+}
+
+.logo-f {
+    font-family: "Rampart One", sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(206, 206, 206);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 10px 0;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        margin-left: 10px;
+        font-size: 1.3em;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        justify-content: space-between;
+        height: fit-content;
+    }
+
+    nav ul {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 0;
+        margin: 10px 0px;
+        font-size: 0.9rem;
+    }
+
+    nav ul li a {
+        margin: 0px;
+    }
+
+    .login {
+        margin: 0 auto;
+        font-size: 0.9rem;
+        padding: 6px 12px;
+        border-radius: 5px;
+    }
+
+    .login:hover {
+        box-shadow: 2px 2px 1px #141619;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .about-section {
+        flex-direction: column-reverse;
+    }
+
+    .about-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-text {
+        width: 90%;
+        margin-left: auto;
+    }
+
+    .about-text h2 {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+
+    .wrapper {
+        padding: 15px;
+        margin-top: 150px;
+    }
+
+    .cover {
+        height: fit-content;
+        padding-bottom: 30px;
+    }
+
+    .cover-content h1 {
+        font-size: 2rem;
+    }
+
+    .cover-content p {
+        font-size: 1.1em;
+    }
+
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+        width: 90%;
+        margin: auto;
+    }
+
+    .about-img {
+        width: 100%;
+        height: 300px;
+        margin: 20px 0;
+        background-size: contain;
+    }
+
+    .about-text {
+        height: fit-content;
+        width: 100%;
+        font-size: 0.95rem;
+        margin-left: 0;
+        padding: 0 20px;
+    }
+
+    .about-text h2 {
+        font-size: 1.5em;
+        margin-bottom: 0px;
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .section-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .section-content p {
+        font-size: 0.9rem;
+    }
+
+    .blog-card {
+        padding: 10px;
+    }
+
+    .blog-card a {
+        margin-top: 0px;
+    }
+
+    .faq-grid {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .faq-item {
+        padding: 20px;
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 10px 0;
+        padding-top: 40px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
+
+    .footer-links ul li {
+        font-size: 0.8rem;
+        margin: 2px 0;
+    }
+
+    .footer-bottom {
+        padding-top: 2px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+}
