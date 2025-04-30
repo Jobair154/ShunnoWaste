@@ -88,7 +88,6 @@ def user_login():
 
     return render_template("user_login.html")
 
-
 @user_bp.route("/user_dashboard")
 @login_required("user")
 def user_dashboard():
@@ -159,7 +158,7 @@ def user_dashboard():
         total_glasses=total_glasses,
     )
 
-    @user_bp.route("/user_submit", methods=["POST", "GET"])
+@user_bp.route("/user_submit", methods=["POST", "GET"])
 @login_required("user")
 def user_submit():
     if request.method == "POST":
@@ -222,7 +221,7 @@ def user_submit():
         return redirect(url_for("user.user_dashboard"))
 
     return render_template("user_dashboard.html")
-    
+
 @user_bp.route("/update_profile", methods=["POST"])
 @login_required("user")
 def update_profile():
@@ -255,3 +254,38 @@ def update_profile():
     finally:
         conn.close()
 
+@user_bp.route("/withdraw", methods=["POST"])
+@login_required("user")
+def withdraw():
+    data = request.get_json()
+    withdrawal_amount = data.get("amount", 0)
+    user_id = session.get("id")
+    points = session.get("points", 0)
+
+    if withdrawal_amount <= 0:
+        return jsonify({"success": False, "message": "Invalid withdrawal amount."})
+
+    if withdrawal_amount > points:
+        return jsonify({"success": False, "message": "Insufficient points available."})
+
+    points -= withdrawal_amount
+    session["points"] = points
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            "UPDATE user SET user_points = %s WHERE user_id = %s",
+            (points, user_id),
+        )
+        conn.commit()
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify(
+            {"success": False, "message": "An error occurred during withdrawal."}
+        )
+    finally:
+        conn.close()
+
+    return jsonify({"success": True, "new_balance": points})
