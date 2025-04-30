@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
   color: whitesmoke;
   padding: 0 20px;
-  background-image: radial-gradient(#14161940 0.9px, #F8F7FF 0.7px);
+  background-image: radial-gradient(#14161940 0.9px, #8EDF91 0.7px);
   background-size: 20px 20px;
 }
 
@@ -28,7 +28,6 @@ a {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
 }
 
 .back_home_div {
@@ -37,7 +36,6 @@ a {
   align-items: center;
   width: 100%;
   padding: 20px;
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -52,7 +50,7 @@ a {
   text-align: center;
   padding: 6px 16px;
   border-radius: 8px;
-  background-color: #87785F;
+  background-color: #67AE6E;
   border: 2px solid #F8F7FF;
   box-shadow: 4px 4px #00000090;
   transition: 0.3s ease-in-out;
@@ -81,15 +79,14 @@ a {
 }
 
 .company-profile {
-  width: 80%;
+  width: 90%;
   color: #fff;
   padding: 30px;
-  margin-top: 100px;
+  margin-top: 7vh;
   margin-bottom: 40px;
-  background: #3587A4;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #67AE6E;
   border-radius: 15px;
-  backdrop-filter: blur(15px);
+  box-shadow: 2px 2px #00000090;
 }
 
 .profile-picture {
@@ -114,21 +111,13 @@ h2 {
   font-size: 1.7rem;
 }
 
-.company-profile p {
-  font-size: 1.2rem;
-  color: #ddd;
-  /* Light grey color for the address */
-  margin-top: 10px;
-  /* Add space between company name and address */
-}
-
 .company-profile .edit-button {
   color: white;
   cursor: pointer;
   margin-top: 15px;
   padding: 6px 16px;
   border-radius: 8px;
-  background-color: #87785F;
+  background-color: #254336BB;
   border: 2px solid #3587A4;
   box-shadow: 4px 4px #00000090;
   transition: 0.3s ease-in-out;
@@ -138,9 +127,79 @@ h2 {
   box-shadow: 2px 2px #00000090;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #E6E6FA;
+  margin: 10% auto;
+  padding: 25px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 500px;
+  box-shadow: 2px 2px #00000090;
+  color: #90C67C;
+  animation: slideIn 0.4s ease;
+}
+
+.modal-content h2 {
+  color: #141619;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: #141619;
+  float: right;
+  font-size: 40px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #87785F;
+}
+
+.history {
+  background-color: #67AE6E;
+}
+
 .history_table {
   overflow: auto;
-  max-height: 300px;
+  max-height: 350px;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
 }
@@ -148,17 +207,13 @@ h2 {
 .history,
 .stock {
   width: 80%;
-  background: #595959;
+  background: #90C67C;
   padding: 40px;
   margin-bottom: 40px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
-  backdrop-filter: blur(15px);
   color: #fff;
-}
-
-.history {
-  background-color: #EE8434
+  box-shadow: 2px 2px #00000090;
 }
 
 .history table,
@@ -208,53 +263,31 @@ button.order-button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: #254336BB;
   justify-content: center;
   align-items: center;
   z-index: 999;
   animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .order-form-content {
-  background: #36454F;
+  background: #D6EFD8;
   padding: 30px;
   border-radius: 15px;
-  color: #fff;
+  color: black;
   width: 80%;
   max-width: 500px;
-  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   align-items: center;
   animation: slideIn 0.4s ease;
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 .order-form-content h3 {
   margin-bottom: 20px;
   font-size: 20px;
   text-align: center;
+  color: black;
 }
 
 .order-form-content form {
@@ -265,7 +298,7 @@ button.order-button:hover {
   display: block;
   margin-bottom: 5px;
   font-weight: 600;
-  color: whitesmoke;
+  color: black;
 }
 
 .order-form-content input {
@@ -273,19 +306,19 @@ button.order-button:hover {
   padding: 10px;
   margin-bottom: 15px;
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(14, 9, 9, 0.2);
   border-radius: 10px;
-  color: #fff;
+  color: black;
   font-size: 14px;
 }
 
 .order-form-content input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: gray;
 }
 
 .order-form-content button {
-  background: #fff;
-  color: #333;
+  background-color: #254336BB;
+  color: whitesmoke;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -296,7 +329,7 @@ button.order-button:hover {
 }
 
 .order-form-content button:hover {
-  background: #ccc;
+  background-color: #254336;
 }
 
 .order-form-content table {
@@ -325,17 +358,74 @@ button.order-button:hover {
   position: absolute;
   top: 10px;
   right: 20px;
-  font-size: 24px;
-  color: #fff;
+  font-size: 40px;
+  font-weight: 300;
   cursor: pointer;
+  color: #141619;
 }
 
 .order-form-content .close-btn:hover {
   color: #ccc;
 }
 
+/* Add these styles for edit profile modal elements */
+.edit-input-box {
+  margin: 15px 0;
+}
 
+.edit-input-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
 
+.edit-input-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #14161990;
+  border-radius: 5px;
+  background: transparent;
+  color: #141619;
+  font-size: 16px;
+}
+
+.submit-btn {
+  float: right;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #F2ECE4;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 8px;
+  background-color: #254336BB;
+  border: 2px solid #E6E6FA;
+  box-shadow: 4px 4px #00000090;
+  transition: 0.4s ease-in-out;
+}
+
+.submit-btn:hover {
+  box-shadow: 2px 2px #000000bb;
+}
+
+#edit-profile-btn {
+  font-size: 13px;
+  color: whitesmoke;
+  cursor: pointer;
+  padding: 5px 12px;
+  margin-top: 15px;
+  border-radius: 7px;
+  background-color: #90C67C;
+  border: 2px solid #C5D6BC;
+  box-shadow: 4px 4px #00000090;
+  transition: 0.3s ease-in-out;
+}
+
+#edit-profile-btn:hover {
+  box-shadow: 2px 2px #00000090;
+}
+
+/* Success Message */
 .success-message {
   background: #fff;
   padding: 30px;
@@ -373,12 +463,12 @@ button.order-button:hover {
   background: #555;
 }
 
+/* Data Display Sections */
 .summary {
-  background: rgba(0, 0, 0, 0.6);
+  background: #90C67C;
   padding: 30px;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px #00000090;
   color: #fff;
   width: 80%;
   margin-bottom: 40px;
@@ -402,7 +492,6 @@ button.order-button:hover {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 16px;
 }
 
 .summary th {
@@ -412,12 +501,11 @@ button.order-button:hover {
 }
 
 .summary td {
-  color: #ddd;
+  color: #F5F5F5;
 }
 
 .summary tr:nth-child(even) {
   background: rgba(255, 255, 255, 0.05);
-
 }
 
 @media screen and (max-width: 768px) {
