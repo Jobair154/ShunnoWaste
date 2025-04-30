@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: radial-gradient(#14161940 0.9px, #E1EEBC 0.7px);
+    background-size: 20px 20px;
+    background-size: cover;
+    color: whitesmoke;
+    background-color: #141619;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.back_home_div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    height: fit-content;
+    margin: 15px 0;
+}
+
+.nav-link {
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, .6);
+    background: #62825D;
+    border: #14161966 solid 1px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.5s ease-in-out;
+}
+
+.nav-link:hover {
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .8);
+}
+
+.wrapper {
+    width: 90%;
+    margin: 20px 0;
+    height: fit-content;
+    background: #90C67C;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.profile_card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #67AE6E;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
+    border: 1px solid rgb(169, 169, 169, 0.5);
+    border-radius: 5px;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+.user-photo {
+    width: 500px;
+    height: 250px;
+    background: url('../assets/ShunnoWaste.png') no-repeat center center;
+    background-size: contain;
+    background-position: center;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.user-info {
+    display: flex;
+    height: 250px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: end;
+    color: white;
+    font-size: 16px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.user-info h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.user-info p {
+    margin-bottom: 5px;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.transactions {
+    padding: 30px;
+    background: #67AE6E;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin: 40px auto;
+    width: 100%;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.transactions-container h2 {
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 15px;
+    font-size: 1.7rem;
+}
+
+.table-div {
+    /* background-color: #829083; */
+    background-color: #62825D;
+    overflow: auto;
+    width: 100%;
+    height: fit-content;
+    max-height: 400px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.1);
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 40px 0;
+}
+
+.transactions-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+.transactions-container th {
+    background-color: #f5f5f520;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.transactions-container th,
+.transactions-container td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transactions-container tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bottom_section {
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.new-order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 30px 50px;
+    background: #14161940;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.new-order h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.items-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    min-width: 500px;
+}
+
+#branch {
+    background: transparent;
+    color: whitesmoke;
+    padding: 5px 15px;
+    width: 25%;
+}
+
+#branch option {
+    background: #141619;
+    color: whitesmoke;
+}
+
+.input-box {
+    margin-bottom: 20px;
+    background: transparent;
+    padding-left: 20px;
+}
+
+.item-group {
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    margin: 5px 0;
+}
+
+.input-box label,
+.item-group label {
+    width: 150x;
+    margin-right: 20px;
+    font-size: 15px;
+
+}
+
+.input-box select,
+.item-group input[type="number"] {
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(200, 200, 200, 0.8);
+    width: 20%;
+    max-width: 400px;
+    min-width: 120px;
+    background: transparent;
+}
+
+.item-group input[type="number"] {
+    width: 100px;
+    color: whitesmoke;
+}
+
+.cardboard {
+    height: 10px;
+}
+
+.submit-btn {
+    float: right;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: -20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    width: 40%;
+    margin: 15% auto;
+    padding: 30px;
+    text-align: center;
+    background-color: #14161930;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    font-size: 18px;
+}
+
+.modal-content input {
+    color: white;
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgba(200, 200, 200, 0.8);
+    width: 50%;
+    background: transparent;
+}
+
+.modal-content form {
+    color: white;
+    width: 70%;
+    display: flex;
+    margin: 0 auto;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label-grp {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+#delete,
+#company-delete {
+    color: #ff0000;
+    font-weight: 600;
+    border: 1px solid #ff0000;
+}
+
+#delete:hover,
+#company-delete:hover {
+    background: #ff000050;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #00ff1eba;
+    background: transparent;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.modal-content button:hover {
+    background: rgba(0, 255, 30, 0.2);
+}
+
+.close-button {
+    display: block;
+    position: absolute;
+    top: 17px;
+    right: 30px;
+    float: right;
+    color: darkgray;
+    background: transparent;
+    font-size: 46px;
+    font-weight: 200;
+    cursor: pointer;
+    text-shadow: 0 0 5px royalblue;
+    transition: 0.4s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    transform: rotate(90deg);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .profile_card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-photo {
+        width: 100%;
+        height: auto;
+    }
+
+    .user-info {
+        text-align: center;
+    }
+
+    .transactions-container {
+        overflow-x: auto;
+    }
+}

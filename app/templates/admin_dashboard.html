@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <!-- <link rel="stylesheet" href="/app/static/admin_dash_style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dash_style.css' ) }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="back_home_div">
+            <div><a href="/" class="nav-link">Home</a></div>
+        </div>
+
+        <div class="wrapper">
+            <div class="profile_card">
+                <div class="user-photo"></div>
+                <div class="user-info">
+                    <div class="info">
+                        <h1>Administrator Account</h1>
+                        <p>{{ email }}</p>
+                    </div>
+                    <div><a href="/logout" class="nav-link">Logout</a></div>
+                </div>
+            </div>
+
+            <div class="transactions-container">
+                <h2>Registered Users</h2>
+                <div class="table-div">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Location</th>
+                                <th>Date Joined</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% if users %}
+                            {% for user in users %}
+                            <tr>
+                                <td>{{ user[0] }}</td>
+                                <td>{{ user[1] }}</td>
+                                <td>{{ user[2] }}</td>
+                                <td>{{ user[3] }}</td>
+                                <td><a href="#usub_table" onclick="user_submissions_func('{{ user[1] }}')"><u><i>view
+                                                log</i></u></a></td>
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td colspan="3">No submissions found.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="divider">
+
+                <h2>Registered Companies</h2>
+                <div class="table-div">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Company Name</th>
+                                <th>Email</th>
+                                <th>Location</th>
+                                <th>Date Joined</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if companies %}
+                            {% for company in companies %}
+                            <tr>
+                                <td>{{ company[0] }}</td>
+                                <td>{{ company[1] }}</td>
+                                <td>{{ company[2] }}</td>
+                                <td>{{ company[3] }}</td>
+                                <td><a href="#csub_table"
+                                        onclick="company_submissions_func('{{ company[1] }}')"><u><i>view
+                                                log</i></u></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td colspan="3">No submissions found.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="divider" id="uh-divider" style="display: none;">
+
+                <h2 id="usub_table"></h2>
+                <div class="table-div" id="user_history" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Branch</th>
+                                <th>Plastic Bottles</th>
+                                <th>Cardboards</th>
+                                <th>Glass</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if submissions %}
+                            {% for submission in submissions %}
+                            <tr>
+                                <td>{{ submission.user_history_date }}</td>
+                                <td>{{ submission.user_history_branch }}</td>
+                                <td>{{ submission.plastic_bottles }}</td>
+                                <td>{{ submission.cardboards }}</td>
+                                <td>{{ submission.glasses }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td colspan="5">No submissions found.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="divider" id="ch-divider" style="display: none;">
+
+                <h2 id="csub_table"></h2>
+                <div class="table-div" id="company_history" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Plastic Bottles</th>
+                                <th>Cardboards</th>
+                                <th>Glass</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if submissions %}
+                            {% for submission in submissions %}
+                            <tr>
+                                <td>{{ submission.company_history_date }}</td>
+                                <td>{{ submission.plastic_bottles }}</td>
+                                <td>{{ submission.cardboards }}</td>
+                                <td>{{ submission.glasses }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td colspan="4">No submissions found.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="editSubmissionModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h2 id="modal-title"></h2>
+                <form method="post">
+                    <div class="label-grp">
+                        <label for="plastic">Plastic Bottles:</label>
+                        <input type="number" id="plastic" name="plastic" value="{{ plastic }}" required>
+                    </div>
+                    <div class="label-grp">
+                        <label for="cardboard">Cardboard:</label>
+                        <input type="number" id="cardboard" name="cardboard" value="{{ cardboard }}" required>
+                    </div>
+                    <div class="label-grp">
+                        <label for="glass">Glass:</label>
+                        <input type="number" id="glass" name="glass" value="{{ glass }}" required>
+                    </div>
+                    <div class="label-grp">
+                        <button name="" id="delete" value="delete">Delete Submission</button>
+                        <button name="" id="edit" value="edit">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="editCompanyModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeCompanyModal()">&times;</span>
+                <h2 id="company-modal-title"></h2>
+                <form method="post">
+                    <div class="label-grp">
+                        <label for="company-plastic">Plastic Bottles:</label>
+                        <input type="number" id="company-plastic" name="company-plastic" value="{{ plastic }}" required>
+                    </div>
+                    <div class="label-grp">
+                        <label for="company-cardboard">Cardboard:</label>
+                        <input type="number" id="company-cardboard" name="company-cardboard" value="{{ cardboard }}"
+                            required>
+                    </div>
+                    <div class="label-grp">
+                        <label for="company-glass">Glass:</label>
+                        <input type="number" id="company-glass" name="company-glass" value="{{ glass }}" required>
+                    </div>
+                    <div class="label-grp">
+                        <button name="" id="company-delete" value="delete">Delete Submission</button>
+                        <button name="" id="company-edit" value="edit">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/admin_dash_script.js') }}"></script>
+
+</body>
+
+</html>
